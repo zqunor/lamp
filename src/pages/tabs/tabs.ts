@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component }      from '@angular/core';
 
-import { PlannerPage } from '../planner/planner';
-import { TimePage } from '../time/time';
+import { PlannerPage }    from '../planner/planner';
+import { TimePage } 	  from '../time/time';
 import { EfficiencyPage } from '../efficiency/efficiency';
-import { CalendarPage } from '../calendar/calendar';
+import { CalendarPage }   from '../calendar/calendar';
 
 @Component({
   templateUrl: 'tabs.html'

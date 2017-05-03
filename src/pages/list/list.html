@@ -3,18 +3,25 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>灯火等级</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+<!--     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-left></ion-icon>
       {{item.title}}
       <div class="item-note" item-right>
         {{item.note}}
       </div>
+    </button> -->
+   <button ion-item (click)="itemTapped($event, item)">
+      <ion-icon name="paper" item-left></ion-icon>
+
+<!--       <div class="item-note" item-right>
+        {{item.note}}
+      </div> -->
     </button>
   </ion-list>
   <div *ngIf="selectedItem" padding>

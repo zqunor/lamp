@@ -7,23 +7,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="paper" item-left></ion-icon>
-      @ionicframework
+<ion-content class="home" padding>
+    <h2>Add a Todo</h2>
+    <ion-item no-lines>
+      <ion-input #newTodo (keyup.enter)="return;" type="text" placeholder="Add new todo..." ></ion-input>
+      <button clear large item-right (click)="return;">
+        <ion-icon name="add"> </ion-icon>
+      </button>
     </ion-item>
-  </ion-list>
+    <h2>Todo List <small>Swipe a todo to edit or delete</small></h2>
+    <ion-list no-lines>
+      <ion-item-sliding #slidingItem *ngFor="let todo of todos">
+        <ion-item>
+          <ion-checkbox (click)="return;" [checked]="todo.isComplete"></ion-checkbox>
+          <ion-item text-wrap item-left [class.completed]="todo.isComplete">
+            {{ todo.description }}
+          </ion-item>
+        </ion-item>
+        <ion-item-options (ionSwipe)="">
+          <button (click)="return;">Edit</button>
+          <button danger (click)="return;">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
 
-  <h2>欢迎 to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
